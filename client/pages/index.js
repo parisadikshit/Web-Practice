@@ -1,7 +1,7 @@
 const Index = () =>{
     return <>
-    <h1> Hello World</h1>
-    <p> from SD</p>
+    <h1 className=" jumbotron text-center bg-primary sqaure"> Hello World</h1>
+   
     </>
 }
 
