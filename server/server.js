@@ -1,10 +1,14 @@
 import  express  from 'express';
 const morgan = require('morgan');
 import cors from 'cors';
+import mongoose from 'mongoose';
 require('dotenv').config();
+const userRouter = require('./routes/auth')
 
-const userRouter = require('./routes/users')
 
+// db connection 
+mongoose.connect(process.env.DATABASE).then(()=> console.log('##DB Connected##'))
+.catch((e) => console.log(e))
 
 // app port 
 const port = process.env.PORT || 8080;
