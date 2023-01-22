@@ -22,12 +22,12 @@ const userSchema = new Schema({
     },
     picture:{
         type:String,
-        default:'/avatar.png'
+        default:'/avatar.png',
     },
     role:{
         type:[String],
-        default:['Subsctiber'],
-        enum: ['Subscriber', 'Instructor','Admin']
+        default:['Subscriber'],
+        enum: ['Subscriber', 'Instructor','Admin'],
     },
     stripe_account_id:'',
     stripe_seller:{},
