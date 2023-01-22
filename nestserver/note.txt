@@ -1,7 +1,0 @@
-Remember that .env should be created in the root folder
-
-Packages installed serially:
-npm i dotenv
-npm i passport
-npm i passport-http-bearer
-npm i @nestjs/passport
