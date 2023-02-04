@@ -14,7 +14,7 @@ const TopNav = () =>{
             setCurrent(window.location.pathname)
         }
         
-    },[typeof window && window.location.pathname])
+    },[typeof window])
     console.log('current',current);
     return (
         <>
