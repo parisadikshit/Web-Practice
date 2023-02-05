@@ -18,6 +18,7 @@ const TopNav = () => {
   const { state, dispatch } = useContext(Context);
   const router = useRouter();
   const { user } = state;
+//   console.log(user)
   useEffect(() => {
     if (typeof window) {
       console.log(window.location.pathname);

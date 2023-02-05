@@ -11,7 +11,7 @@ const Context = createContext();
 
 
 // root reducer 
-const rootReducer = (state=initialState,action) =>{
+const rootReducer = (state,action) =>{
     switch (action.type){
         case "LOGIN":
             return {
@@ -33,10 +33,10 @@ const Provider = ({children}) =>{
     const [state, dispatch] = useReducer(rootReducer, initialState);
     useEffect(()=>{
         dispatch({
-            state:'LOGIN',
+            type:'LOGIN',
             payload:JSON.parse(window.localStorage.getItem('user'))
         })
-    })
+    },[])
     return (
         <Context.Provider value ={{state,dispatch}}>
             {children}
