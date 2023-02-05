@@ -1,13 +1,19 @@
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { SyncOutlined } from '@ant-design/icons';
 import Link from 'next/link';
+import { Context } from '../context';
+import {useRouter} from 'next/router'
 
 const Login = () =>{
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, isLoading] = useState(false);
+    const router = useRouter()
+      // state
+      const {state, dispatch} = useContext(Context)
+      console.log('state',state)
     const handleSubmit = async (e) =>{
         // console.log(e);
         e.preventDefault();
@@ -19,7 +25,20 @@ const Login = () =>{
                 email,
                 password
             })
-            console.log('login data:',data)
+            // console.log('login data:',data)
+            // dispatch the action 
+            dispatch(
+                {
+                    type:'LOGIN',
+                    payload:data
+                }
+            )
+
+            // save the state in local storage
+            window.localStorage.setItem('user',JSON.stringify(data));
+
+            //redirect user to home page after login
+            router.push('/')
 
             isLoading(false);
 
